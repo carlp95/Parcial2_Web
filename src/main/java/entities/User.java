@@ -15,7 +15,7 @@ public class User implements Serializable {
 
     private String lastname;
 
-    private Date borndate;
+    private Date birthdate;
 
 //    private String placeborn;
 
@@ -50,12 +50,60 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String username, String name, String lastname, Date borndate, String password, boolean isAdministrator) {
+    public User(String username, String name, String lastname, Date birthdate, String password, boolean isAdministrator) {
         this.username = username;
         this.name = name;
         this.lastname = lastname;
-        this.borndate = borndate;
+        this.birthdate = birthdate;
         this.password = password;
         this.isAdministrator = isAdministrator;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public Date getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isAdministrator() {
+        return isAdministrator;
+    }
+
+    public void setAdministrator(boolean administrator) {
+        isAdministrator = administrator;
     }
 }

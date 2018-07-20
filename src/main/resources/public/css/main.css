@@ -12,10 +12,15 @@ body {
     flex: 1 0 auto;
     padding: 20px;
 }
+
 .footer {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    right: 0;
     padding: 20px;
-    flex-shrink: 0;
-    background-color: rgb(68, 68, 68);
+    background-color: lightgray;
 }
 
 .bubble {
@@ -32,15 +37,3 @@ body {
     margin-right: 6px;
 }
 
-/* For an more sophisticate tags editing in the future... or not*/
-.tag {
-
-}
-
-.tag p {
-
-}
-
-.tag button {
-
-}

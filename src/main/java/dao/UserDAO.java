@@ -5,7 +5,7 @@ import entities.User;
 import javax.persistence.*;
 import java.util.List;
 
-public class UserDAO implements Dao<User, Long> {
+public class UserDAO implements Dao<User, String> {
     private EntityManagerFactory emf;
 
     public UserDAO() {
@@ -36,10 +36,10 @@ public class UserDAO implements Dao<User, Long> {
     }
 
     @Override
-    public User find(Long id) {
+    public User find(String username) {
         EntityManager em = emf.createEntityManager();
         try {
-            return em.find(User.class, id);
+            return em.find(User.class, username);
         } catch (IllegalArgumentException iae) {
             System.out.println(iae.getMessage());
         } finally {
