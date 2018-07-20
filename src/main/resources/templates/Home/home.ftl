@@ -28,6 +28,21 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12" style="margin: 0 auto;">
+                                    <input class="form-control" name="username" placeholder="Usuario" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12" style="margin: 0 auto;">
+                                    <input class="form-control" name="passwd" placeholder="Contraseña" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12" style="margin: 0 auto;">
+                                    <input class="form-control" name="confirmpasswd" placeholder="Confirmar contraseña" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12" style="margin: 0 auto;">
                                     <input class="form-control" name="born" type="date">
                                 </div>
                             </div>
@@ -41,13 +56,12 @@
                                     <input class="form-control" name="city" placeholder="Ciudad" type="text">
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-                                <div class="custom-control custom-checkbox" style="margin: 0 auto;">
-                                    <input class="custom-control-input" id="customCheck1" type="checkbox" name="remember">
-                                    <label class="custom-control-label" for="customCheck1">Recordarme</label>
-                                </div>
-                            </div>
+                            <#--<div class="form-group row">-->
+                                <#--<div class="custom-control custom-checkbox" style="margin: 0 auto;">-->
+                                    <#--<input class="custom-control-input" id="customCheck1" type="checkbox" name="remember">-->
+                                    <#--<label class="custom-control-label" for="customCheck1">Recordarme</label>-->
+                                <#--</div>-->
+                            <#--</div>-->
                             <div class="form-group row">
                                 <button type="submit" class="btn btn-success mx-auto"><strong>Registrarse</strong></button>
                             </div>
