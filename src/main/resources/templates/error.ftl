@@ -1,4 +1,4 @@
-<#import "general.ftl" as gen>
+<#import "HomePage/home.ftl" as gen>
 
 <@gen.base user = userValue>
     <div class="container" align="center">

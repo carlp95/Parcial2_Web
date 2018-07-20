@@ -1,14 +1,9 @@
-package Entities;
+package entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-enum notificationTypeEnum{
-    FriendRequest,
-    Message,
-    Tagged
-}
 
 @Entity
 public class Notification implements Serializable {
@@ -17,7 +12,7 @@ public class Notification implements Serializable {
     @GeneratedValue
     private long id;
 
-    private notificationTypeEnum notiType;
+    private NotificationType type;
 
     private String description;
 
@@ -26,18 +21,18 @@ public class Notification implements Serializable {
     @ManyToOne
     private User user;
 
-    private Date dateNotified;
+    private Date date;
 
     public Notification() {
     }
 
-    public Notification(long id, notificationTypeEnum notiType, String description, boolean seen, User user, Date dateNotified) {
+    public Notification(long id, NotificationType type, String description, boolean seen, User user, Date date) {
         this.id = id;
-        this.notiType = notiType;
+        this.type = type;
         this.description = description;
         this.seen = seen;
         this.user = user;
-        this.dateNotified = dateNotified;
+        this.date = date;
     }
 
     public long getId() {
@@ -48,12 +43,12 @@ public class Notification implements Serializable {
         this.id = id;
     }
 
-    public notificationTypeEnum getNotiType() {
-        return notiType;
+    public NotificationType getType() {
+        return type;
     }
 
-    public void setNotiType(notificationTypeEnum notiType) {
-        this.notiType = notiType;
+    public void setType(NotificationType type) {
+        this.type = type;
     }
 
     public String getDescription() {
@@ -80,11 +75,11 @@ public class Notification implements Serializable {
         this.user = user;
     }
 
-    public Date getDateNotified() {
-        return dateNotified;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDateNotified(Date dateNotified) {
-        this.dateNotified = dateNotified;
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
