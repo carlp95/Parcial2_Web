@@ -12,11 +12,14 @@ import static spark.Spark.*;
 
 public class Main {
 
+    // Declare dependencies
+    public static UserDAO userDAO;
+    public static BootStrapServices bootStrapServices;
+
     public static void main(String[] args) {
 
         //Instantiate dependencies
-        UserDAO userDAO = new UserDAO();
-        BootStrapServices bootStrapServices = new BootStrapServices();
+        userDAO = new UserDAO();
 
         // Configure Spark
         staticFiles.location("/public");
@@ -36,10 +39,6 @@ public class Main {
             return ViewUtil.render(model, "home.ftl");
         });
 
-        post("/", (request, response) -> {
-
-            return null
-        });
     }
 }
 
