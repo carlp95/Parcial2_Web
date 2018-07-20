@@ -1,5 +1,9 @@
 package util;
 
+import org.h2.tools.Server;
+
+import java.sql.SQLException;
+
 public class BootStrapServices {
     private static BootStrapServices instancia;
 
