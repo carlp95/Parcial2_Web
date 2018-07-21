@@ -70,11 +70,11 @@ public class Main {
             Map<String, Object> model = new HashMap<>();
             if (!authenticate(request.queryParams("username"), request.queryParams("password"))) {
                 model.put("authenticationFailed", true);
-
+                System.out.println("auth failed!!");
                 return ViewUtil.render(request, model, Path.LOGIN);
             }
-                model.put("authenticationSucceeded", true);
-
+            model.put("authenticationSucceeded", true);
+            System.out.println("auth succeded!!");
             request.session().attribute("currentUser", request.queryParams("username"));
 
             // Si es necesario chekiar si esta logueado antes de una accion esto es util.
@@ -85,7 +85,7 @@ public class Main {
                 response.redirect(request.queryParams("loginRedirect"));
             }
 
-            return ViewUtil.render(request, model, Path.TIMELINE);
+            return ViewUtil.render(request, model, Path.LOGIN);
         });
 
         post("/logout", (request, response) -> {
