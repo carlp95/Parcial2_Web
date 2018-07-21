@@ -16,7 +16,7 @@
         <div class="col-lg-3">
             <div class="card">
                 <div class="card-body">
-                    <h3><strong>Usuario</strong></h3>
+                    <h3><strong>${ currentUser }</strong></h3>
                     <h6>username</h6>
                     <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>
                     <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>

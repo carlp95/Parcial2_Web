@@ -1,17 +1,13 @@
 package main;
 
 import entities.User;
-import freemarker.template.Configuration;
 import org.jasypt.util.password.BasicPasswordEncryptor;
-import spark.Route;
-import spark.template.freemarker.FreeMarkerEngine;
 import util.Filters;
 import util.Path;
 import util.ViewUtil;
 import util.BootStrapServices;
 import dao.UserDAO;
 
-import javax.swing.text.View;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -85,7 +81,7 @@ public class Main {
                 response.redirect(request.queryParams("loginRedirect"));
             }
 
-            return ViewUtil.render(request, model, Path.LOGIN);
+            return ViewUtil.render(request, model, Path.TIMELINE);
         });
 
         post("/logout", (request, response) -> {

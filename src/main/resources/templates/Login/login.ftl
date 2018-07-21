@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12" style="margin: 0 auto;">
-                                <input class="form-control" name="password" placeholder="Contraseña" type="password">
+                                <input  class="form-control" name="password" placeholder="Contraseña" type="password">
                             </div>
                         </div>
                         <div class="form-group row">

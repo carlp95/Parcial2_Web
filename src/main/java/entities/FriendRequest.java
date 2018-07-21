@@ -1,8 +1,6 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -12,19 +10,21 @@ public class FriendRequest implements Serializable {
     @GeneratedValue
     private long id;
 
-    private String userFrom;
+    @OneToOne()
+    private User requestUser;
 
-    private String userRequested;
+    @OneToOne()
+    private User targetUser;
 
     private boolean isAccepted;
 
     public FriendRequest() {
     }
 
-    public FriendRequest(long id, String userFrom, String userRequested, boolean isAccepted) {
+    public FriendRequest(long id, User userFrom, User userRequested, boolean isAccepted) {
         this.id = id;
-        this.userFrom = userFrom;
-        this.userRequested = userRequested;
+        this.requestUser = userFrom;
+        this.targetUser = userRequested;
         this.isAccepted = isAccepted;
     }
 
@@ -36,20 +36,20 @@ public class FriendRequest implements Serializable {
         this.id = id;
     }
 
-    public String getUserFrom() {
-        return userFrom;
+    public User getRequestUser() {
+        return requestUser;
     }
 
-    public void setUserFrom(String userFrom) {
-        this.userFrom = userFrom;
+    public void setRequestUser(User requestUser) {
+        this.requestUser = requestUser;
     }
 
-    public String getUserRequested() {
-        return userRequested;
+    public User getTargetUser() {
+        return targetUser;
     }
 
-    public void setUserRequested(String userRequested) {
-        this.userRequested = userRequested;
+    public void setTargetUser(User userRequested) {
+        this.targetUser = userRequested;
     }
 
     public boolean isAccepted() {
