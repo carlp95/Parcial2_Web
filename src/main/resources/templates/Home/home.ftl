@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <h4 class="card-title" align="center" style="font-family: leaf; font-size: 50px; color: #316a3a">BanaGreen</h4>
                         <!-- <p class="card-text">Registrate en la red donde puedes compartir tus pensamientos</p> -->
-                        <form action="confirmLogin" method="post">
+                        <form action="confirmLogin" autocomplete="off" method="post">
                             <div class="form-group row">
                                 <div class="col-md-6" style="margin: 0 auto;">
                                     <!-- <label for="username">Usuario</label> -->
