@@ -37,3 +37,96 @@ body {
     margin-right: 6px;
 }
 
+.avatar {
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 40%;
+}
+
+/* The hero image */
+.hero-image {
+    /* The image used */
+    background-image: url("playa.jpg");
+
+    /* Set a specific height */
+    height: 40%;
+    width: 70%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Bottom left text */
+.image-bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+.image-avatar{
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border-color: black;
+}
+
+.image-special {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+.image-special:hover{
+    opacity: 0.8;
+}
+
+.middle{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.image-bottom-left:hover .image-special{
+    opacity: 0.8;
+}
+
+.image-bottom-left:hover .middle{
+    opacity: 1;
+}
+
+.myicon{
+    padding: 16px 32px;
+}
+
+.fa-camera{
+    color: white;
+}
+.fa-camera:hover{
+    color: #c0cdd3;
+}
+
+/*.container-special:hover .middle{
+  opacity: 1;
+} */
+
+/* .middle:hover{
+  opacity: 1;
+} */
+/* .my-icon{
+  font-size: 16px;
+  padding: 16px 32px;
+} */
+

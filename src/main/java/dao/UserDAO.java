@@ -5,7 +5,7 @@ import entities.User;
 import javax.persistence.*;
 import java.util.List;
 
-public class UserDAO implements Dao<User, String> {
+public class UserDAO implements DAO<User, String> {
     private EntityManagerFactory emf;
 
     public UserDAO() {

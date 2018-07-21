@@ -2,13 +2,10 @@ package dao;
 
 import entities.Post;
 
-import javax.persistence.EntityExistsException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
-public class PostDAO implements Dao<Post, Long> {
+public class PostDAO implements DAO<Post, Long> {
     EntityManagerFactory emf;
 
     public PostDAO() {
@@ -40,21 +37,58 @@ public class PostDAO implements Dao<Post, Long> {
 
     @Override
     public Post find(Long id) {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.find(Post.class, id);
+        } catch (IllegalArgumentException iae) {
+            System.out.println(iae.getMessage());
+        } finally {
+            em.close();
+        }
         return null;
     }
 
     @Override
     public void update(Post entity) {
-
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(entity);
+            em.getTransaction().commit();
+        }catch (Exception e){
+            em.getTransaction().rollback();
+            throw  e;
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public void remove(Post entity) {
-
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.remove(entity);
+            em.getTransaction().commit();
+        }catch (Exception ex){
+            em.getTransaction().rollback();
+            throw  ex;
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public List<Post> findAll() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            TypedQuery<Post> query = em.createQuery("select p from Post p", Post.class);
+            return query.getResultList();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            em.close();
+        }
         return null;
     }
 }
