@@ -83,7 +83,8 @@ public class Main {
                 return ViewUtil.render(request, model, Path.LOGIN);
             }
             model.put("authenticationSucceeded", true);
-            request.session().attribute("currentUser", request.queryParams("username"));
+            User user = userDAO.find(request.queryParams("username"));
+            request.session().attribute("currentUser", user);
 
             if (request.queryParams("loginRedirect") != null) {
                 response.redirect(request.queryParams("loginRedirect"));

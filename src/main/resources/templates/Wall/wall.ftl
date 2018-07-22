@@ -1,22 +1,24 @@
+<#-- @ftlvariable name="currentUser" type="java.lang.String" -->
 <#import "../base.ftl" as b>
 
 <@b.base>
-    <#include "navbar_wall.ftl">
-    <div class="hero-image">
-        <div class="image-bottom-left">
-            <img src="/images/playa.jpg" class="image-avatar image-special" alt="Avatar">
-            <div class="middle" style="border-color: black">
-                <a href="/images/monkey-face.png" class="myicono"><i class="fa fa-camera" style="font-size: 40px;"></i></a>
-            </div>
+<#include "navbar_wall.ftl">
+
+<div class="hero-image">
+    <div class="image-bottom-left">
+        <img src="/images/playa.jpg" class="image-avatar image-special" alt="Avatar">
+        <div class="middle" style="border-color: black">
+            <a href="/images/monkey-face.png" class="myicono"><i class="fa fa-camera" style="font-size: 40px;"></i></a>
         </div>
     </div>
+</div>
 
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
             <div class="card">
                 <div class="card-body">
-                    <h3><strong>${ currentUser }</strong></h3>
+                    <h3><strong>${ name }</strong></h3>
                     <h6>username</h6>
                     <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>
                     <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>
@@ -94,4 +96,5 @@
         </div>
     </div>
 </div>
+
 </@b.base>
