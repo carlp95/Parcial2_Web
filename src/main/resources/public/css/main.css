@@ -14,18 +14,7 @@ body {
 }
 
 .footer {
-    display: flex;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    right: 0;
-    padding: 20px;
     background-color: lightgray;
-}
-
-.bubble {
-    margin-left: 40px;
-    padding: 20px;
 }
 
 .likes-panel {
@@ -190,15 +179,27 @@ body {
     }
 }
 
-/*.container-special:hover .middle{
-  opacity: 1;
-} */
+.portrait {
+    width: 100%;
+    height: 240px;
+    background: url('/images/default-portrait.png') no-repeat;
+    background-size: cover;;
+}
 
-/* .middle:hover{
-  opacity: 1;
-} */
-/* .my-icon{
-  font-size: 16px;
-  padding: 16px 32px;
-} */
+.portrait .profile-pic {
+    width: 128px;
+    height: 128px;
+    z-index: auto;
+    padding-top: 100px;
+    padding-left: 10px;
+    border-color: black;
+}
+
+.portrait .profile-pic img {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: white;
+}
 

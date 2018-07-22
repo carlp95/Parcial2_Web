@@ -1,9 +1,8 @@
 <#import "../base.ftl" as b>
 
 <@b.base>
-    <#include "navbar.ftl">
+<#include "navbar.ftl">
 
-    <#--<h1>This is the homepage</h1>-->
 <div class="content">
     <div class="row">
         <div class="col-lg-6">

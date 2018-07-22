@@ -3,16 +3,20 @@
 <@b.base>
 <#include "navbar_wall.ftl">
 
-<div class="hero-image">
-    <div class="image-bottom-left">
-        <img src="/images/playa.jpg" class="image-avatar image-special" alt="Avatar">
-        <div class="middle" style="border-color: black">
-            <a href="/images/monkey-face.png" class="myicono"><i class="fa fa-camera" style="font-size: 40px;"></i></a>
-        </div>
-    </div>
-</div>
+
 
 <div class="container">
+
+    <div class="portrait mb-3">
+        <#--<img src="/images/playa.jpg" alt="Imagen de portada">-->
+        <div class="profile-pic">
+            <img src="/images/monkey-face.png" class="image-avatar image-special" alt="Avatar">
+            <div class="middle">
+                <a href="#" class="myicono"><i class="fa fa-camera" style="font-size: 40px;"></i></a>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-3">
             <div class="card">
