@@ -1,7 +1,7 @@
 <#import "../base.ftl" as b>
 
 <@b.base>
-    <#include "navbar_Timeline.ftl">
+    <#include "navbar_index.ftl">
     <div class="content">
         <ul>
             <div class="card border-secondary mx-auto mb-3" style="width: 750px">
