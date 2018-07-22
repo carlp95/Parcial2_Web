@@ -1,4 +1,3 @@
-<#-- @ftlvariable name="currentUser" type="java.lang.String" -->
 <#import "../base.ftl" as b>
 
 <@b.base>
@@ -18,8 +17,8 @@
         <div class="col-lg-3">
             <div class="card">
                 <div class="card-body">
-                    <h3><strong>${ name }</strong></h3>
-                    <h6>username</h6>
+                    <h3><strong>${ currentUser.name }</strong></h3>
+                    <h6>${currentUser.username}</h6>
                     <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>
                     <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>
                     <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>
@@ -31,7 +30,7 @@
         <div class="col-lg-5 mx-auto">
             <div class="card mb-3">
                 <div class="card-body">
-                    <h5 class="card-title"><strong>Usuario</strong></h5>
+                    <h5 class="card-title"><strong>${currentUser.name}</strong></h5>
                     <h6 class="card-subtitle text-muted">Actualizó su foto de portada  <time datetime="2018-07-20" style="float: right"> 20-07-2018 1:08 AM</time></h6>
 
                 <img style="height: 200px; width: 100%; display: block;" src="/images/playa.jpg" alt="Card image">
