@@ -2,8 +2,9 @@
 
 <@b.base>
 <#include "navbar_album.ftl">
+
 <div class="content">
-    <div class="card">
+    <div class="card col-lg-10 mx-auto">
         <div class="card-body">
             <div class="album-row">
                 <div class="album-column">

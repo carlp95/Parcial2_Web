@@ -79,8 +79,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/js/city.js">
-
-</script>
+<script type="text/javascript" src="/js/city.js"></script>
     <#include "footer.ftl">
 </@b.base>

@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <button type="submit" class="btn btn-success mx-auto"><i class="fa fa-sign-in"> <strong>Entrar</strong></i></button>
+                            <button type="submit" class="btn btn-success mx-auto"><i class="fa fa-sign-in-alt"> <strong>Entrar</strong></i></button>
                         </div>
                     </form>
                 </div>

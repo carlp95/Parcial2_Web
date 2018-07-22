@@ -2,7 +2,7 @@
 
 <@b.base>
 <#include "navbar_wall.ftl">
-
+    <#include "../menu.ftl">
 
 
 <div class="container">
@@ -16,6 +16,15 @@
             </div>
         </div>
     </div>
+
+<#--<div class="hero-image">-->
+    <#--<div class="image-bottom-left">-->
+        <#--<img src="/images/playa.jpg" class="image-avatar image-special" alt="Avatar">-->
+        <#--<div class="middle" style="border-color: black">-->
+            <#--<a href="/images/monkey-face.png" class="myicono"><i class="fa fa-camera" style="font-size: 40px;"></i></a>-->
+        <#--</div>-->
+    <#--</div>-->
+<#--</div>-->
 
     <div class="row">
         <div class="col-lg-3">

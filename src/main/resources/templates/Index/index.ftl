@@ -2,6 +2,7 @@
 
 <@b.base>
     <#include "navbar_index.ftl">
+    <#include "../menu.ftl">
     <div class="content">
         <ul>
             <div class="card border-secondary mx-auto mb-3" style="width: 750px">
