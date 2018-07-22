@@ -3,12 +3,12 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class=" class="collapse navbar-collapse""></div>
+    <div class="collapse navbar-collapse"></div>
     <div>
         <ul class="nav nav-pills">
             <li class="nav-item">
                 <a class="nav-link active" href="#" data-toggle="tooltip" data-placement="top" title="Perfil" data-original-title="Tooltip on top" style="border-right: 1px solid">
-                    <img src="playa.jpg" alt="Avatar" class="avatar"/> <strong>${ currentUser }</strong>
+                    <img src="/images/playa.jpg" alt="Avatar" class="avatar"/> <strong>${ currentUser }</strong>
                 </a>
             </li>
             <li class="nav-item" style="border-right: 1px solid">

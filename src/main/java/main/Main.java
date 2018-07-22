@@ -10,6 +10,7 @@ import util.ViewUtil;
 import util.BootStrapServices;
 import dao.UserDAO;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -91,6 +92,21 @@ public class Main {
             return null;
         });
 
+        post("/register",(request,response)->{
+           User user = new User();
+           BasicPasswordEncryptor encryptor = new BasicPasswordEncryptor();
+           user.setUsername(request.queryParams("username"));
+
+           user.setPassword(encryptor.encryptPassword(request.queryParams("passwd")));
+           user.setName(request.queryParams("personName"));
+           user.setLastname(request.queryParams("lastName"));
+           user.setBirthdate(new SimpleDateFormat("yyyy-MM-dd").parse(request.queryParams("born")));
+           user.setAdministrator(false);
+
+           userDAO.persist(user);
+           response.redirect("/");
+           return null;
+        });
     }
 
     // User Controller

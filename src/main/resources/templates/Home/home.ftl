@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <h4 class="card-title" align="center" style="font-family: leaf; font-size: 50px; color: #316a3a">BanaGreen</h4>
                         <!-- <p class="card-text">Registrate en la red donde puedes compartir tus pensamientos</p> -->
-                        <form action="confirmLogin" autocomplete="off" method="post">
+                        <form action="/register" autocomplete="off" method="post">
                             <div class="form-group row">
                                 <div class="col-md-6" style="margin: 0 auto;">
                                     <!-- <label for="username">Usuario</label> -->
@@ -52,8 +52,8 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-12" style="margin: 0 auto;">
-                                    <input class="form-control" name="city" placeholder="Ciudad" type="text">
+                                <div class="col-md-12 autocomplete" style="margin: 0 auto;">
+                                    <input class="form-control" id="citylist" name="city" placeholder="Ciudad" type="text">
                                 </div>
                             </div>
                             <#--<div class="form-group row">-->
@@ -80,6 +80,8 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="/js/city.js">
 
+</script>
     <#include "footer.ftl">
 </@b.base>
