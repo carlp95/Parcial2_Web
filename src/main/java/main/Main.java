@@ -129,7 +129,9 @@ public class Main {
             }
 
             logInfo(request, tempFile);
-            return "<h1>You uploaded this image:<h1><img src='" + tempFile.getFileName() + "'>";
+
+            response.redirect("/album");
+            return null;
         });
 
     }
