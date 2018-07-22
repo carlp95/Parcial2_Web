@@ -3,11 +3,21 @@ package main;
 import dao.DAOImpl;
 import entities.User;
 import org.jasypt.util.password.BasicPasswordEncryptor;
+import spark.Request;
 import util.Filters;
 import util.Path;
 import util.ViewUtil;
 import util.BootStrapServices;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletException;
+import javax.servlet.http.Part;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -23,13 +33,16 @@ public class Main {
 
 
     public static void main(String[] args) {
+        File uploadDir = new File("parcial2UploadImages");
+        uploadDir.mkdir();
+
+        staticFiles.externalLocation("parcial2UploadImages");
 
         //Instantiate dependencies
         userDAO = new DAOImpl<>(User.class);
 
         // Configure Spark
         staticFiles.location("/public");
-//        staticFiles.expireTime(600L);
 
         // Launch Database
         BootStrapServices.getInstance().init();
@@ -64,6 +77,7 @@ public class Main {
         // Handle login
         post("/login", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+
             if (!authenticate(request.queryParams("username"), request.queryParams("password"))) {
                 model.put("authenticationFailed", true);
                 return ViewUtil.render(request, model, Path.LOGIN);
@@ -71,10 +85,6 @@ public class Main {
             model.put("authenticationSucceeded", true);
             request.session().attribute("currentUser", request.queryParams("username"));
 
-            // Si es necesario chekiar si esta logueado antes de una accion esto es util.
-            // Cuando verifiques en un filtro que el currentUser == null (osea que el user no esta logueado)
-            // Ahi podras guardar en la sesion la direccion de la pagina en la que te encuentras antes de
-            // ir a esta pagina de logue y aqui se encargara de devorte luego de loguerte
             if (request.queryParams("loginRedirect") != null) {
                 response.redirect(request.queryParams("loginRedirect"));
             }
@@ -106,6 +116,22 @@ public class Main {
            response.redirect("/");
            return null;
         });
+
+        get("/album", (request, response) -> ViewUtil.render(request, new HashMap<>(), Path.ALBUM));
+
+        post("/album", (request, response) -> {
+            java.nio.file.Path tempFile = Files.createTempFile(uploadDir.toPath(), "", "");
+
+            request.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
+
+            try (InputStream input = request.raw().getPart("uploaded_file").getInputStream()) { // getPart needs to use same "name" as input field in form
+                Files.copy(input, tempFile, StandardCopyOption.REPLACE_EXISTING);
+            }
+
+            logInfo(request, tempFile);
+            return "<h1>You uploaded this image:<h1><img src='" + tempFile.getFileName() + "'>";
+        });
+
     }
 
     // User Controller
@@ -120,6 +146,20 @@ public class Main {
         }
 
         return encryptor.checkPassword(password, user.getPassword());
+    }
+
+    // methods used for logging
+    private static void logInfo(Request req, java.nio.file.Path tempFile) throws IOException, ServletException {
+        System.out.println("Uploaded file '" + getFileName(req.raw().getPart("uploaded_file")) + "' saved as '" + tempFile.toAbsolutePath() + "'");
+    }
+
+    private static String getFileName(Part part) {
+        for (String cd : part.getHeader("content-disposition").split(";")) {
+            if (cd.trim().startsWith("filename")) {
+                return cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+            }
+        }
+        return null;
     }
 
 }

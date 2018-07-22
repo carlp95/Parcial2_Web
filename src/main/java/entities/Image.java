@@ -2,6 +2,8 @@ package entities;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 public class Image {
     @Id
@@ -12,6 +14,8 @@ public class Image {
 
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "USER_ID")
     private User user;
 
     public Image() {
