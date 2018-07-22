@@ -1,5 +1,7 @@
 package main;
 
+import dao.DAO;
+import dao.DAOImpl;
 import entities.User;
 import org.jasypt.util.password.BasicPasswordEncryptor;
 import util.Filters;
@@ -17,14 +19,14 @@ import static spark.Spark.*;
 public class Main {
 
     // Declare dependencies
-    public static UserDAO userDAO;
+    public static DAOImpl<User, String> userDAO;
     public static BasicPasswordEncryptor encryptor = new BasicPasswordEncryptor();
 
 
     public static void main(String[] args) {
 
         //Instantiate dependencies
-        userDAO = new UserDAO();
+        userDAO = new DAOImpl<>(User.class);
 
         // Configure Spark
         staticFiles.location("/public");
