@@ -1,7 +1,7 @@
 <#import "../base.ftl" as b>
 
 <@b.base>
-    <#include "navbar_portfolio.ftl">
+    <#include "navbar_wall.ftl">
     <div class="hero-image">
         <div class="image-bottom-left">
             <img src="/images/playa.jpg" class="image-avatar image-special" alt="Avatar">

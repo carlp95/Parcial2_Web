@@ -3,9 +3,9 @@ package util;
 public class Path {
     // Declare template constants
     public final static String HOME = "/Home/home.ftl";
-    public final static String PORTFOLIO = "/Portfolio/portfolio.ftl";
-    public final static String TIMELINE = "/Timeline/timeline.ftl";
+    public final static String WALL = "/Wall/wall.ftl";
+    public final static String INDEX = "/Index/index.ftl";
     public final static String LOGIN = "/Login/login.ftl";
-    public final static String ERROR = "error.ftl";
+    public final static String ERROR = "/error.ftl";
 
 }

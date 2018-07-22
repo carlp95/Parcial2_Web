@@ -1,6 +1,5 @@
 package main;
 
-import dao.DAO;
 import dao.DAOImpl;
 import entities.User;
 import org.jasypt.util.password.BasicPasswordEncryptor;
@@ -8,7 +7,6 @@ import util.Filters;
 import util.Path;
 import util.ViewUtil;
 import util.BootStrapServices;
-import dao.UserDAO;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -53,16 +51,15 @@ public class Main {
         internalServerError(ViewUtil.internalServerError);
 
         // Home routes
-        get("/", (request, response) -> ViewUtil.render(request, new HashMap<>(), Path.HOME));
+        get("/", (request, response) -> ViewUtil.render(request, new HashMap<>(), Path.INDEX));
 
-        get("/portfolio", (request, response) ->
-                ViewUtil.render(request, new HashMap<>(), Path.PORTFOLIO));
+        get("/wall", (request, response) ->
+                ViewUtil.render(request, new HashMap<>(), Path.WALL));
 
-        get("/timeline", (request, response) -> ViewUtil.render(request, new HashMap<>(), Path.TIMELINE));
+        get("/register", (request, response) -> ViewUtil.render(request, new HashMap<>(), Path.HOME));
 
         // Serve login
-        get("/login", (request, response) ->
-                ViewUtil.render(request, new HashMap<>(), Path.LOGIN));
+        get("/login", (request, response) ->  ViewUtil.render(request, new HashMap<>(), Path.LOGIN));
 
         // Handle login
         post("/login", (request, response) -> {
@@ -82,7 +79,9 @@ public class Main {
                 response.redirect(request.queryParams("loginRedirect"));
             }
 
-            return ViewUtil.render(request, model, Path.TIMELINE);
+            response.redirect("/");
+
+            return null;
         });
 
         post("/logout", (request, response) -> {
