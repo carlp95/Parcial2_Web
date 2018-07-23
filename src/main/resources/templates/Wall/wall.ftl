@@ -4,7 +4,6 @@
 <#include "navbar_wall.ftl">
     <#include "../menu.ftl">
 
-
 <div class="container">
 
     <div class="portrait mb-3">
@@ -32,15 +31,15 @@
                 <div class="card-body">
                     <h3><strong>${ currentUser.name }</strong></h3>
                     <h6>${currentUser.username}</h6>
+                    <button type="button" class="btn btn-link" ic-get-from="/editInfo" ic-target="#userInfo" id="showInfo"><i class="fa fa-info-circle"> Información</i></button>
                     <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>
-                    <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>
-                    <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>
-                    <button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>
+                    <button type="button" class="btn btn-link"><i class="fa fa-atlas"> Crear Página</i></button>
+                    <#--<button type="button" class="btn btn-link"><i class="fa fa-images"> Crear Album</i></button>-->
                 </div>
             </div>
         </div>
-
-        <div class="col-lg-5 mx-auto">
+        <div id="userInfo" class="col-lg-5"></div>
+        <div class="col-lg-5 mx-auto" id="story">
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title"><strong>${currentUser.name}</strong></h5>
@@ -108,5 +107,7 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="/js/changeInfo.js"></script>
+<script type="text/javascript" src="/js/city.js"></script>
 
 </@b.base>

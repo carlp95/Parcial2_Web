@@ -243,3 +243,10 @@ body {
     background: white;
 }
 
+.esconder{
+    visibility: hidden;
+}
+
+.mostrar{
+    visibility: visible;
+}

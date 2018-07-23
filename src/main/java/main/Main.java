@@ -4,10 +4,7 @@ import dao.DAOImpl;
 import entities.User;
 import org.jasypt.util.password.BasicPasswordEncryptor;
 import spark.Request;
-import util.Filters;
-import util.Path;
-import util.ViewUtil;
-import util.BootStrapServices;
+import util.*;
 
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletException;
@@ -89,11 +86,10 @@ public class Main {
             if (request.queryParams("loginRedirect") != null) {
                 response.redirect(request.queryParams("loginRedirect"));
             }
-
             response.redirect("/");
 
             return null;
-        });
+        },JSONUtilidades.json());
 
         post("/logout", (request, response) -> {
             request.session().removeAttribute("currentUser");
@@ -132,6 +128,19 @@ public class Main {
             logInfo(request, tempFile);
 
             response.redirect("/album");
+            return null;
+        });
+
+        get("/editInfo",(request,response)-> ViewUtil.render(request, new HashMap<>(), Path.EDITUSER));
+
+        put("/editInfo/:username",(request, response) ->{
+            User user = userDAO.find(request.queryParams("username"));
+            user.setName(request.queryParams("personName"));
+            user.setLastname(request.queryParams("lastName"));
+            user.setBirthdate(new SimpleDateFormat("yyyy-MM-dd").parse(request.queryParams("born")));
+            user.setAdministrator(false);
+            userDAO.update(user);
+            response.redirect("/editInfo");
             return null;
         });
 
